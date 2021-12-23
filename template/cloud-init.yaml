@@ -1,0 +1,26 @@
+#cloud-config
+
+ssh_pwauth: no
+
+package_upgrade: true
+packages:
+- htop
+- rsync
+
+write_files:
+- path: /etc/skel/.bash_aliases
+  content: |
+    alias l='ls -laF'
+    alias ll='ls -lF'
+    alias lt='ll -t'
+    alias -- +='pushd'
+    alias -- -='popd'
+    alias -- ..='cd ..'
+    alias -- ...='cd ../..'
+
+users:
+- name: sven
+  shell: /bin/bash
+  sudo: ALL=(ALL) NOPASSWD:ALL
+  ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDmYdhWXeElEp/0WHwqbc6CJ1KkOdwymWzwdpB7kvp2mOcl6ST/tZsYHeBfbADbo7ha9UQsvzqQgjRu79qj725CRVDMGNSnGM9N8E7/N39dwOwTPwPquCi+CXGVWGgC0tHt6pnmDIGFz7aw5ok/ibQCMge22TVp5KJ2z6bD45K2bFVIWu3M9BSdtpVJrKRtU0CZhfawu19w9VODH3X/CkCr3UfMYih4SXpiOvxHQEKMO94wkaFqmBRuYmPQZ8Hsjk1LWmoojsa5DiVSIVmVE+yeX/PK76UCH8APGYc3NE5NX7/W13KCwpXpUdOK/qgfsR6Kst8c/g0IavjpasP2Q7pF
