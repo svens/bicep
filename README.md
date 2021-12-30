@@ -1,7 +1,7 @@
 # bicep
 
-Sample Azure bicep-based cluster. This is side-project for UDP streaming
-performance tuning under Linux and Windows
+Sample Azure bicep-based cluster. This is side-project for
+[UDP streaming performance tuning](https://github.com/svens/pal/tree/net_multi_message/scripts/net-udp-tuning) under Linux and Windows
 
 It contains following virtual machines:
 * udp-relay-linux: Debian/Linux machine hosting UDP relay server
